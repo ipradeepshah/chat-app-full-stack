@@ -1,16 +1,14 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-const dbConnect = async ()=>{
-    try{
-        const res =await mongoose.connect('mongodb://127.0.0.1:27017/chatappDb');
-        if(res){
-           console.log('Database connected');
-        } 
-    }catch (err) {
-        console.log(err);
+const dbConnect  = async ()=>{
+    try {
+        const res = await mongoose.connect(process.env.MONGODB_CONNECTION_URI);
+        if(res) console.log("db connection success")
+    }catch(err){
+        console.error(err)
     }
-    
 }
 
-
-module.exports = dbConnect;
+export default dbConnect
