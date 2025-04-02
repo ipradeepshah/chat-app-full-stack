@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";   
 import dbConnect from "./db/connection.js";
-import userRoute from "./routes/userRoute.js"
+import userRoute from "./routes/userRoute.js";
+import messageRoute from "./routes/messageRoute.js";
 import cookieParser from "cookie-parser";
 dotenv.config();
 
@@ -16,8 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 //routes
-app.use(userRoute);
-app.use("/user", userRoute );
+
+app.use("/user", userRoute);
+app.use("/message", messageRoute);
+
 
 app.listen(PORT, () => {
     dbConnect();
