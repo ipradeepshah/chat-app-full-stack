@@ -26,7 +26,7 @@ export const register = async (req, res) => {
       username,
       password: hashedPassword,
       gender,
-      profilePhoto: gender === "male" ? maleProfilePhoto : femaleProfilePhoto,
+      profilePhoto: gender === "Male" ? maleProfilePhoto : femaleProfilePhoto,
     });
 
     return res.status(201).json({ message: "User Created Successfully" });
