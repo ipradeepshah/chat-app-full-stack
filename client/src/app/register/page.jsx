@@ -33,7 +33,7 @@ const Signup = () => {
         formData,   
         { headers: { "Content-Type": "application/json" } } 
       );
-      if (response.status === 200) {
+      if (response.status === 201) {
         toast.success(response.data.message);
         router.push("/login");
       }
